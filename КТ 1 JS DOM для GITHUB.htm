@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Массив и таблица</title>
+	<style>
+		table, td {
+			border: 1px solid black;
+			padding: 10px;
+		}
+		td.orange {
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+
+	<table id="myTable">
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+	<button onclick="addNumber()">Добавить число</button>
+
+	<script>
+		let arr = [];
+		for (let i = 0; i < 30; i++) {
+			arr.push(Math.floor(Math.random() * 100));
+		}
+
+		let table = document.getElementById("myTable");
+		let index = 0;
+		for (let i = 0; i < table.rows.length; i++) {
+			for (let j = 0; j < table.rows[i].cells.length; j++) {
+				table.rows[i].cells[j].textContent = arr[index];
+				if (arr[index] >= 50) {
+					table.rows[i].cells[j].classList.add("orange");
+				}
+				index++;
+			}
+		}
+
+		function addNumber() {
+			let number = Math.floor(Math.random() * 100);
+			let cell = table.rows[Math.floor(Math.random() * 5)].cells[Math.floor(Math.random() * 6)];
+			cell.textContent = number;
+			if (number >= 50) {
+				cell.classList.add("orange");
+			} else {
+				cell.classList.remove("orange");
+			}
+		}
+	</script>
+
+</body>
+</html>
